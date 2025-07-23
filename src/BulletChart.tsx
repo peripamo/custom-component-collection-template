@@ -88,7 +88,7 @@ export const BulletChart: FC = () => {
               },
               formatter: function() {
                   const percentage = ((this.y / this.point.target) * 100).toFixed(1);
-                  const color = percentage > 80 ? 'red' : '#000';
+                  const color = percentage > 80 ? targetColor : '#000';
                   return `<span style="color: ${color};">${percentage}%</span>`;
               }
             }
