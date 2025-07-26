@@ -30,24 +30,18 @@ export const KPIGauge: FC = () => {
         value: 80,
         outerRadius: '112%',
         innerRadius: '88%',
-        icon: 'filter',
-        iconColor: '#303030'
       },
       {
         name: 'Engagement',
         value: 65,
         outerRadius: '87%',
         innerRadius: '63%',
-        icon: 'comments-o',
-        iconColor: '#ffffff'
       },
       {
         name: 'Feedback',
         value: 50,
         outerRadius: '62%',
         innerRadius: '38%',
-        icon: 'commenting-o',
-        iconColor: '#303030'
       }
     ]
   })
@@ -89,7 +83,8 @@ export const KPIGauge: FC = () => {
       custom: {
         icon: kpi.icon || 'circle',
         iconColor: kpi.iconColor || '#303030'
-      }
+      },
+      showInLegend: true
     }))
 
     return {
@@ -120,6 +115,20 @@ export const KPIGauge: FC = () => {
         },
         style: {
           fontSize: `${baseFontSize}px`
+        }
+      },
+
+      legend: {
+        useHTML: true,
+        symbolWidth: 0,
+        symbolHeight: 0,
+        labelFormatter: function() {
+            const series = this as any;
+            const seriesIndex = series.index;
+            const color = colors?.[seriesIndex] || '#000000';
+            return '<span>' +
+                   '<span style="display: inline-block; width: 10px; height: 10px; background-color: ' + color + '; margin-right: 5px; border-radius: 5px;"></span>' +
+                   this.name + '</span>';
         }
       },
 
