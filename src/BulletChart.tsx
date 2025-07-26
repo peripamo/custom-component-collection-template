@@ -12,6 +12,7 @@ export const BulletChart: FC = () => {
   const [actual, setActual] = Retool.useStateNumber({ name: 'actual' })
   const [width, setWidth] = Retool.useStateNumber({ name: 'width' })
   const [height, setHeight] = Retool.useStateNumber({ name: 'height' })
+  const [showActualValue, setShowActualValue] = Retool.useStateBoolean({ name: 'showActualValue' })
   const [targetColor, setTargetColor] = Retool.useStateString({
     name: 'targetColor'
   })
@@ -87,7 +88,7 @@ export const BulletChart: FC = () => {
                   color: '#000'
               },
               formatter: function() {
-                  const percentage = ((this.y / this.point.target) * 100).toFixed(1);
+                  const percentage = showActualValue ? this.y : ((this.y / this.point.target) * 100).toFixed(1);
                   const color = percentage > 80 ? targetColor : '#000';
                   return `<span style="color: ${color};">${percentage}%</span>`;
               }
