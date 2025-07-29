@@ -137,7 +137,15 @@ export const FundExposureChart: FC = () => {
             data: data,
             dataLabels: {
               enabled: true,
-              color: '#000000'
+              color: '#000000',
+              style: {
+                outline: '#ffffff',
+                fontWeight: 'normal',
+                fontSize: fontSize || '15px'
+              },
+              formatter: function(this: Highcharts.Point) {
+                return this.value
+              }
             }
           }
         ]

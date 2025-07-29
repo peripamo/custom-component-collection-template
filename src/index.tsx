@@ -43,6 +43,7 @@ export { DataOnlyTreemapChart } from './DataOnlyTreemapChart'
 export { BulletChart } from './BulletChart'
 export { MirroredBarChart } from './MirroredBarChart'
 export { ColorScaleTreeMapChart } from './ColorScaleTreeMapChart'
+export { TargetColumnChart } from './TargetColumnChart'
 
 
 // export const SplitPackedBubbleChart: FC = () => {
