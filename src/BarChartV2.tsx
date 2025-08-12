@@ -178,7 +178,7 @@ export const BarChartV2: FC = () => {
       xAxis: {
         categories: sortedData.categories,
         title: {
-          text: null
+          text: xAxisTitle
         },
         lineWidth: 0,
         labels: {
@@ -316,20 +316,20 @@ export const BarChartV2: FC = () => {
     }
 
     const paginationHtml = `
-      <div style="margin-top: 1rem; text-align: center;">
-        <div style="display: inline-flex; align-items: center; gap: 4px;">
+      <div style="margin-top: 0.5rem; text-align: center;">
+        <div style="display: inline-flex; align-items: center; gap: 2px;">
           <button 
             type="button"
             class="pagination-btn" 
             data-page="${currentPage - 1}"
             ${currentPage === 1 ? 'disabled' : ''}
             style="
-              padding: 8px 12px;
+              padding: 4px 8px;
               border: 1px solid #e2e8f0;
-              border-radius: 6px;
+              border-radius: 4px;
               background: ${currentPage === 1 ? '#f8fafc' : '#ffffff'};
               color: ${currentPage === 1 ? '#94a3b8' : '#0f172a'};
-              font-size: 14px;
+              font-size: 12px;
               font-weight: 500;
               cursor: ${currentPage === 1 ? 'not-allowed' : 'pointer'};
               transition: all 0.2s ease;
@@ -354,16 +354,16 @@ export const BarChartV2: FC = () => {
               class="pagination-btn" 
               data-page="${page}"
               style="
-                padding: 8px 12px;
+                padding: 4px 8px;
                 border: 1px solid #e2e8f0;
-                border-radius: 6px;
+                border-radius: 4px;
                 background: ${page === currentPage ? '#0f172a' : '#ffffff'};
                 color: ${page === currentPage ? '#ffffff' : '#0f172a'};
-                font-size: 14px;
+                font-size: 12px;
                 font-weight: 500;
                 cursor: pointer;
                 transition: all 0.2s ease;
-                min-width: 40px;
+                min-width: 28px;
               "
               onmouseover="
                 if (${page} !== ${currentPage}) {
@@ -386,12 +386,12 @@ export const BarChartV2: FC = () => {
             data-page="${currentPage + 1}"
             ${currentPage === totalPages ? 'disabled' : ''}
             style="
-              padding: 8px 12px;
+              padding: 4px 8px;
               border: 1px solid #e2e8f0;
-              border-radius: 6px;
+              border-radius: 4px;
               background: ${currentPage === totalPages ? '#f8fafc' : '#ffffff'};
               color: ${currentPage === totalPages ? '#94a3b8' : '#0f172a'};
-              font-size: 14px;
+              font-size: 12px;
               font-weight: 500;
               cursor: ${currentPage === totalPages ? 'not-allowed' : 'pointer'};
               transition: all 0.2s ease;
@@ -411,7 +411,7 @@ export const BarChartV2: FC = () => {
           </button>
         </div>
         
-        <div style="margin-top: 8px; color: #64748b; font-size: 12px;">
+        <div style="margin-top: 4px; color: #64748b; font-size: 10px;">
           Showing ${(currentPage - 1) * itemsPerPage + 1}-${Math.min(currentPage * itemsPerPage, sortedData.totalItems)} of ${sortedData.totalItems} items
         </div>
       </div>
