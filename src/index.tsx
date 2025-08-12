@@ -44,7 +44,8 @@ export { BulletChart } from './BulletChart'
 export { MirroredBarChart } from './MirroredBarChart'
 export { ColorScaleTreeMapChart } from './ColorScaleTreeMapChart'
 export { TargetColumnChart } from './TargetColumnChart'
-
+export { PolarChart } from './PolarChart'
+export { GroupedBarChart } from './GroupedBarChart'
 
 // export const SplitPackedBubbleChart: FC = () => {
 //   const chartContainerRef = useRef<HTMLDivElement>(null)

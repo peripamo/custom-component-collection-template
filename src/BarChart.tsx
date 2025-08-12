@@ -151,7 +151,7 @@ export const BarChart: FC = () => {
           value: threshold,
           dashStyle: 'Dash',
           label: {
-            text: `Threshold: ${threshold}`,
+            // text: `Threshold: ${threshold}`,
             align: 'right',
             style: {
               color: thresholdColor
