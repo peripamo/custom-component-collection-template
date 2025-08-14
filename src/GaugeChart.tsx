@@ -15,6 +15,14 @@ export const GaugeChart: FC = () => {
   const [seriesName, setSeriesName] = Retool.useStateString({
     name: 'seriesName'
   })
+  const [suffix, setSuffix] = Retool.useStateString({
+    name: 'suffix',
+    initialValue: '%'
+  })
+  const [fontSize, setFontSize] = Retool.useStateString({
+    name: 'fontSize',
+    initialValue: '15px'
+  })
   const [height, setHeight] = Retool.useStateString({ name: 'height' })
   const [width, setWidth] = Retool.useStateString({ name: 'width' })
 
@@ -34,7 +42,8 @@ export const GaugeChart: FC = () => {
             dataLabels: {
               y: 5,
               borderWidth: 0,
-              useHTML: true
+              useHTML: true,
+              format: `<div style="text-align:center"><span style="font-size:${fontSize}">{y}${suffix || ''}</span></div>`
             }
           }
         },
@@ -84,7 +93,7 @@ export const GaugeChart: FC = () => {
         ]
       })
     }
-  }, [title, subtitle, yMin, yMax, value, seriesName, width, height])
+  }, [title, subtitle, yMin, yMax, value, seriesName, suffix, width, height])
 
   return (
     <div
